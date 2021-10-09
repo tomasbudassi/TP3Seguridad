@@ -12,10 +12,10 @@
 <body class="container">
     <div class="col-md-5 col-center">
         <div class="form-group">
-            <form action="login.php" method="post">
+            <form id="login-form">
                 <p><H2>Ingreso</H2><hr/></p>
-                <label>Usuario</label><input class="form-control" type="text" name="user" placeholder="Ingrese su usuario" required ></p>
-                <label>Contraseña</label><input class="form-control" type="password" name="password" placeholder="Ingrese su contraseña" required><p>
+                <label>Usuario</label><input class="form-control" id="userInput" type="text" name="username" placeholder="Ingrese su usuario" required ></p>
+                <label>Contraseña</label><input class="form-control" id="passwordInput" type="password" name="password" placeholder="Ingrese su contraseña" required><p>
                 <p><input type="submit" value="Acceder" name="login" class="btn btn-dark btn-block" /></p>
             </form>
         </div>
@@ -23,9 +23,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script>
-        jQuery(document).ready(function () {
-            alert("hola");
+        $('#login-form').submit(function(e)
+        {
+            e.preventDefault();
+
+            let url = 'http://localhost:8080/login';
+            let postData = {
+                username: $('#userInput').val(),
+                password: $('#passwordInput').val()
+            };
+
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "POST",
+                url: url,
+                data: JSON.stringify(postData),
+                dataType: "JSON",
+                success: function(data)
+                {
+                    let obj = JSON.parse(data);
+
+                    window.localStorage.setItem('token', obj.username);
+                }
+            });
+
         });
+
     </script>
 </body>
 </html>
