@@ -14,7 +14,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -22,8 +21,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
                 .antMatchers("/", "/login").permitAll()
+
                 .antMatchers(HttpMethod.POST, "/registrar_tarea").hasAnyAuthority("admin")
-                .antMatchers(HttpMethod.GET, "/obtener_tareas").hasAnyAuthority("user");
+                .antMatchers(HttpMethod.GET, "/obtener_tareas").hasAnyAuthority("user")
+                .anyRequest().authenticated().and().exceptionHandling().authenticationEntryPoint(new AuthFailureHandler());
         http.headers().frameOptions().disable();
     }
 }
