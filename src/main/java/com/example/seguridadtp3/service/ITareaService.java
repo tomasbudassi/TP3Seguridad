@@ -1,8 +1,11 @@
 package com.example.seguridadtp3.service;
 
-import com.example.seguridadtp3.dto.TareaDTO;
+import com.example.seguridadtp3.model.Tarea;
+
+import java.util.List;
 
 public interface ITareaService {
 
-    TareaDTO agregarTarea(TareaDTO tarea);
+    Tarea agregarTarea(Tarea tarea);
+    List<Tarea> obtenerTareas() throws Exception;
 }
