@@ -1,0 +1,102 @@
+body {
+    font-family: sans-serif;
+    background-image: url("imagenes/fondo.jpg");
+    background-attachment: fixed;
+    /*background-color:#d6dbdf;*/
+}
+
+h2,
+h3 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.navbar {
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+.form-group {
+    background: rgba(0, 0, 0, .2);
+    padding: 10% 15%;
+    border-radius: 20px 20px 20px 20px;
+    border: black 3px solid;
+    font-weight: bold;
+}
+
+
+/* Grid de publicaciones */
+
+.grid-posts {
+    grid-row-gap: 50px;
+}
+
+
+/* Cuadrados individuales del Grid de publicaciones*/
+
+.posts {
+    margin-top: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    border: black 1px solid;
+    text-align: center;
+    font-weight: bold;
+    height: 320px;
+    width: 310px;
+    background: rgba(0, 0, 0, .15);
+}
+
+
+/* Fotos del Grid de publicaciones */
+
+.grid_foto {
+    height: 230px;
+    width: 100%;
+    border-bottom: black 1px solid;
+}
+
+
+/* Fotos dentro de una publicacion */
+
+.publicacion_foto {
+    border: black 1px solid;
+    display: block;
+    margin: auto;
+}
+
+
+/* Formato de publicaciones */
+
+.ver_publicacion {
+    background: rgba(0, 0, 0, .2);
+    padding: 5% 8%;
+    border-radius: 20px 20px 20px 20px;
+    border: black 2px solid;
+    margin-bottom: 40px;
+    height: auto;
+    width: auto;
+}
+
+
+/* Centrar columna */
+
+.col-center {
+    padding-top: 70px;
+    padding-bottom: 50px;
+    float: none;
+    margin: 0 auto;
+}
+
+
+/* Paginacion */
+
+.page-item.active .page-link {
+    color: #fff;
+    background-color: green;
+    border-color: green;
+}
+
+.page-link {
+    color: green;
+}
