@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ITareaService {
 
-    Tarea agregarTarea(Tarea tarea);
+    Tarea agregarTarea(Tarea tarea) throws Exception;
     List<Tarea> obtenerTareas() throws Exception;
 }
