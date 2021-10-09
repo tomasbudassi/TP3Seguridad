@@ -16,9 +16,14 @@ public class TareaService implements ITareaService {
 
     @Override
     @Transactional
-    public Tarea agregarTarea(Tarea tarea) {
-        tareaRepository.save(tarea);
-        return tarea;
+    public Tarea agregarTarea(Tarea tarea) throws Exception {
+        try {
+            tareaRepository.save(tarea);
+            return tarea;
+        }
+        catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
     }
 
     @Override

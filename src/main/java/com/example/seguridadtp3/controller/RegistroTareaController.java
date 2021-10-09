@@ -17,7 +17,7 @@ public class RegistroTareaController {
     private ITareaService tareaService;
 
     @PostMapping("/registrar_tarea")
-    public ResponseEntity<Tarea> agregarTarea(@RequestBody Tarea tarea) {
+    public ResponseEntity<Tarea> agregarTarea(@RequestBody Tarea tarea) throws Exception {
         return new ResponseEntity<>(tareaService.agregarTarea(tarea), HttpStatus.CREATED);
     }
 
