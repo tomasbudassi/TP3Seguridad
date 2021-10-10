@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping()
 @AllArgsConstructor
-public class RegistroTareaController {
+public class TareaController {
 
     private ITareaService tareaService;
 
