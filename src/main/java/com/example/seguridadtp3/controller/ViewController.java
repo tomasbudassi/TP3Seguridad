@@ -13,9 +13,4 @@ public class ViewController {
     public String obtenerTareas() {
         return "tareas";
     }
-
-    @GetMapping(value = "/registro")
-    public String registrarTarea() {
-        return "registro";
-    }
 }

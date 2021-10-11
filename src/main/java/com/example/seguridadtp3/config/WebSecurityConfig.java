@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers("/", "/login", "/tareas", "/registro", "/index").permitAll()
+                .antMatchers("/", "/login", "/tareas", "/index").permitAll()
 
                 .antMatchers(HttpMethod.POST, "/registrar_tarea").hasAnyAuthority("admin")
                 .antMatchers(HttpMethod.GET, "/obtener_tareas").hasAnyAuthority("user", "admin")
