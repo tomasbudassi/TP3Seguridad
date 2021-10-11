@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 @EnableWebSecurity
 @Configuration
@@ -21,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers("/", "/login", "templat").permitAll()
+                .antMatchers("/", "/login", "/tareas", "/registro", "/index").permitAll()
 
                 .antMatchers(HttpMethod.POST, "/registrar_tarea").hasAnyAuthority("admin")
                 .antMatchers(HttpMethod.GET, "/obtener_tareas").hasAnyAuthority("user", "admin")

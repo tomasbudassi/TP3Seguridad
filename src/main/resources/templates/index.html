@@ -43,7 +43,7 @@
                 dataType: "JSON",
                 success: function(data) {
                     localStorage.setItem('token', data.token.replace('Bearer ', ''));
-                    //location.href = 'tareas.html'
+                    location.href = 'tareas'
 
                     //$.ajax({ url: 'obtener_tareas.', headers: { 'Authorization': data.token } });
                 },
