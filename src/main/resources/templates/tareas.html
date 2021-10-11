@@ -12,8 +12,8 @@
 
 </head>
 <body class="container">
-	<div id="registrarTarea" class="col-md-5 col-center"></div>
-	<div id="mostrarTareas" class="col-md-5 col-center"></div>
+	<div id="registrarTarea" class="col-md-6 col-center"></div>
+	<div id="mostrarTareas" class="col-md-8 col-center"></div>
 <script>
     let token = localStorage.getItem('token')
 	parsedToken = parseJwt(token);
@@ -21,18 +21,17 @@
 	parsedToken = parsedToken.authorities[0]
 
 	if ( parsedToken == "admin") {
-		let html = `<div class="col-md-12 col-center">
+		let html = `
 			<div class="form-group">
 				<form id="registro-form">
 					<p><H2>Registrar nueva tarea</H2></p>
 					<hr/>
 					<br>
-						<p><label>Titulo</label><br> <input class="form-control" id="tituloForm" type="text" name="titulo" maxLength="65" placeholder="Añadir un titulo" required></p>
+						<p><label>Titulo</label><br> <input class="form-control" id="tituloForm" type="text" name="titulo" maxLength="50" placeholder="Añadir un titulo" required></p>
 						<p><label>Descripción</label> <textarea class="form-control" id="descripcionForm" name="descripcion" rows="10" cols="75" placeholder="Ingresar una descripción"	required></textarea></p>
 						<p><input type="submit" value="Añadir Tarea" name="registrar" class="btn btn-dark btn-block"/></p><br><br>
 				</form>
-			</div>
-		</div>`;
+			</div>`;
 		$('#registrarTarea').html(html);
 
 		$('#registro-form').submit(function(e) {
