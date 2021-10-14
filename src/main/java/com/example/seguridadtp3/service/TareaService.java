@@ -27,7 +27,6 @@ public class TareaService implements ITareaService {
     }
 
     @Override
-    @Transactional
     public List<Tarea> obtenerTareas() throws Exception {
 
         try {
